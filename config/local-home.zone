@@ -1,0 +1,20 @@
+$TTL 2d
+
+$ORIGIN local.home.
+
+@               IN      SOA     ns.local.home   email-add.local.home. (
+                                01      ; serial
+                                12h     ; refresh
+                                15m     ; retry
+                                3w      ; expire
+                                2h      ; minimum ttl
+                                )
+
+                IN      NS      ns.local.home.
+
+ns              IN      A       192.168.30.103
+
+;   IP ADDRESS OF THE UPPER LINE NEEDS TO BE CHANGED AS PER THE REQUIRMENT
+;   -- add dns records below
+
+router          IN      A       192.168.30.97

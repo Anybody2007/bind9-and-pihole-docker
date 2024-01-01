@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  bind9:
+    container_name: dns-bind9
+    image: ubuntu/bind9:latest
+    environment:
+      - BIND9_USER=root
+      - TZ=Asia/Kolkata
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./config:/etc/bind
+      - ./cache:/var/cache/bind
+      - ./records:/var/lib/bind
+    restart: always
+    networks:
+      app_net:
+        ipv4_address: 172.20.0.2
+
+  pihole:
+    image: pihole/pihole:latest
+    environment:
+      - TZ=Asia/Kolkata
+      - WEBPASSWORD=version-canary-hardcopy
+      - DNS1=1.1.1.2
+      - DNS2=1.0.0.2
+      - SERVERIP=172.20.0.3
+    volumes:
+      - ./pihole:/etc/pihole
+      - ./dnsmasq.d:/etc/dnsmasq.d
+    ports:
+      - "80:80/tcp"
+      - "443:443/tcp"
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    networks:
+      app_net:
+        ipv4_address: 172.20.0.3
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16

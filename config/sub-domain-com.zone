@@ -1,0 +1,18 @@
+$TTL 2d
+
+$ORIGIN sub.domain.com.
+
+@               IN      SOA     ns.sub.domain.com   email-add.domain.com. (
+                                01      ; serial
+                                12h     ; refresh
+                                15m     ; retry
+                                3w      ; expire
+                                2h      ; minimum ttl
+                                )
+
+                IN      NS      ns.sub.domain.com.
+
+ns              IN      A       10.20.3.4
+
+;   IP ADDRESS OF THE UPPER LINE NEEDS TO BE CHANGED AS PER THE REQUIRMENT
+;   -- add dns records below
