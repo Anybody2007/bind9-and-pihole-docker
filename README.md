@@ -77,7 +77,14 @@ You can use this DNS for your home, so that you make your internet faster.
     - This file is an example of how you can set up a zone for any domain you own.
    
 4. **Named Configuration (named.conf)**
-    **ACLs (Access Control Lists):** The configuration starts with defining ACLs to restrict DNS access. This is a crucial step to ensure that your DNS server is not used outside your intended network, enhancing security.
+   
+    **ACLs (Access Control Lists):**
+
+     The configuration starts with defining ACLs to restrict DNS access. This is a crucial step to ensure that your DNS server is not used outside your intended network, enhancing security.
+
+     You need to provide your `IP/subnet` here. So that only your device can resolve the queries.
+
+     eg - `192.168.0.1/24` or `192.168.1.1/24`
 
     **Forwarders:**
 
