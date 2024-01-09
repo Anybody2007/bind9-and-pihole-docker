@@ -1,4 +1,4 @@
-# DNS with Bind9 Docker Configuration
+# DNS with Bind9 and PiHole Combined Docker Configuration
 
 This repository contains a Docker Compose setup for running a Bind9 DNS server, alongside the necessary DNS configuration files. It is designed to be easily customizable and deployable.
 
