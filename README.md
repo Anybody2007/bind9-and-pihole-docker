@@ -4,6 +4,13 @@ This repository contains a Docker Compose setup for running a Bind9 DNS server, 
 
 You can use this DNS for your home, so that you make your internet faster.
 
+## If you are using ubuntu then
+
+```
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+```
+
 ## Diagram
 
 <img width="972" alt="image" src="https://github.com/Anybody2007/bind9-and-pihole-docker/assets/33482071/47364b15-2cf4-4868-8531-f582c6901d52">
